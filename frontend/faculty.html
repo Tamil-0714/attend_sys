@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resourse Managment</title>
+    <link rel="stylesheet" href="./style/loginStyle.css" />
+  </head>
+  <body>
+    <h2>Faculty login page</h2>
+    <form action="#" id="faulty-login-form">
+      <div class="userIdContainer">
+        <label for="uName">User name</label>
+        <input type="text" id="uName" required name="userName" />
+      </div>
+      <div class="userPassContainer">
+        <label for="uPass">Password</label>
+        <input type="password" id="uPass" required name="password" />
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+
+    <script src="./script/validator.js"></script>
+    <script>
+      document
+        .querySelector("#faulty-login-form")
+        .addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const name = document.querySelector("#uName").value.trim();
+          const pass = document.querySelector("#uPass").value.trim();
+          authUser(name, pass, "faculty");
+        }); 
+    </script>
+  </body>
+</html>
