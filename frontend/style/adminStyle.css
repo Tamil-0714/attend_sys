@@ -1,0 +1,14 @@
+nav {
+    height: 60px;
+}
+.input-validation-required {
+    width: 300px;
+    outline: 1px solid;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.adder-form {
+    display: flex;
+    gap: 10px;
+}

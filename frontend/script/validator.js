@@ -22,9 +22,10 @@ const authUser = async (id, pass, flag) => {
     if (status === 200) {
       const headers = Object.fromEntries(response.headers.entries());
       const resData = await response.json();
-      window.location.href = "/profile.html";
+      window.location.href = "./adminProfile.html";
     } else if (status === 403) {
       alert("Unauthorized: Invalid user credentials");
+
     } else {
       alert(`Unexpected error occurred: Status ${status}`);
     }

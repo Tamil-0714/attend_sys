@@ -42,8 +42,8 @@ async function fetchCred(id, flag) {
     }
     const params = [id];
     const rows = await queryDB(query, params);
-    console.log("this is rows : ",rows);
-    
+    console.log("this is rows : ", rows);
+
     return rows;
   } catch (error) {
     console.error(error);
@@ -51,7 +51,18 @@ async function fetchCred(id, flag) {
   }
 }
 
+async function addNewStd(stdId, stdName, stdPass) {
+  try {
+    const query = `insert into studentCred values(?,?,?)`;
+    const params = [stdId, stdPass, stdName];
+    const rows = await queryDB(query, params);
+    return rows;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 module.exports = {
   fetchCred,
+  addNewStd,
 };
-
