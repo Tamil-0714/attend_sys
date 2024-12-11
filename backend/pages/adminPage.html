@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" class="sl-theme-dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.19.0/cdn/themes/light.css"
+    />
+
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.19.0/cdn/shoelace-autoloader.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.19.0/cdn/themes/dark.css"
+    />
+    <link rel="stylesheet" href="../styles/adminStyle.css" />
+  </head>
+  <body>
+    <sl-tab-group placement="start">
+      <sl-tab slot="nav" panel="users">Users</sl-tab>
+      <sl-tab slot="nav" panel="custom">Custom</sl-tab>
+      <sl-tab slot="nav" panel="advanced">Advanced</sl-tab>
+      <sl-tab slot="nav" panel="disabled">Disabled</sl-tab>
+
+      <sl-tab-panel name="users" class="users-container">
+        <div class="details-group-example">
+          <sl-details summary="Student">
+            <div class="student-container">
+              <div class="avatar-wrapper">
+                <sl-avatar label="User avatar"></sl-avatar>
+              </div>
+              <div class="name-other-wrapper">
+                <h4 class="std-name">Tamilarasan N</h4>
+                <p class="update-time">25 Jan 14:53</p>
+              </div>
+              <div class="request-info-wrapper">
+                <sl-popup placement="right" active skidding="200" distance="2">
+                  <span slot="anchor"><sl-button>Request Info</sl-button></span>
+                  <div class="box request-info-box" >
+                    
+                  </div>
+                </sl-popup>
+              </div>
+            </div>
+          </sl-details>
+
+          <sl-details summary="Faculty">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat.
+          </sl-details>
+
+          <sl-details summary="Other">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat.
+          </sl-details>
+        </div>
+      </sl-tab-panel>
+      <sl-tab-panel name="custom">This is the custom tab panel.</sl-tab-panel>
+      <sl-tab-panel name="advanced"
+        >This is the advanced tab panel.</sl-tab-panel
+      >
+      <sl-tab-panel name="disabled">This is a disabled tab panel.</sl-tab-panel>
+    </sl-tab-group>
+  </body>
+
+  <script>
+    const container = document.querySelector(".details-group-example");
+
+    // Close all other details when one is shown
+    container.addEventListener("sl-show", (event) => {
+      if (event.target.localName === "sl-details") {
+        [...container.querySelectorAll("sl-details")].map(
+          (details) => (details.open = event.target === details)
+        );
+      }
+    });
+  </script>
+</html>
