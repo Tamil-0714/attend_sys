@@ -10,7 +10,7 @@ function ensureAuthenticated(req, res, next) {
 }
 
 function ensureAdminAuthenticated(req, res, next) {
-  if (req.session.user.role === 'admin') {
+  if (req?.session?.user?.role === "admin") {
     return next();
   } else {
     return res
@@ -20,5 +20,5 @@ function ensureAdminAuthenticated(req, res, next) {
 }
 module.exports = {
   ensureAuthenticated,
-  ensureAdminAuthenticated
+  ensureAdminAuthenticated,
 };

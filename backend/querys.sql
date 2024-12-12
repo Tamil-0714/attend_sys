@@ -35,3 +35,17 @@ create table studentCred(
 );
 insert into studentCred(id,pass) values("22ucs622","$2a$12$CABFTzxYI2l6IPu2Y2r9De89bs5kXrZQ085vG2A45Ktb45egaAvQq"); -- iamstd@123
 
+
+CREATE TABLE attendance (
+    attendance_id INT AUTO_INCREMENT PRIMARY KEY,
+    noteDate DATE NOT NULL,
+    hour INT NOT NULL CHECK (hour BETWEEN 1 AND 5),
+    student_id VARCHAR(16) NOT NULL,
+    attenSts ENUM('Present', 'Absent') NOT NULL, 
+    CONSTRAINT FK_student_id FOREIGN KEY (student_id)
+        REFERENCES studentCred(id) 
+        ON DELETE CASCADE
+);
+
+
+

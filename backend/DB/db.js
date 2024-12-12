@@ -51,10 +51,31 @@ async function fetchCred(id, flag) {
   }
 }
 
-async function addNewStd(stdId, stdName, stdPass) {
+async function addNewStd(stdName, stdId, stdPass) {
   try {
-    const query = `insert into studentCred values(?,?,?)`;
+    const query = `insert into sectionAStudentCred values(?,?,?)`;
     const params = [stdId, stdPass, stdName];
+    const rows = await queryDB(query, params);
+    return rows;
+  } catch (error) {
+    console.error(error);
+  }
+}
+async function addNewFac(fName, fId, fPass) {
+  try {
+    const query = `insert into facultyCred values(?,?,?)`;
+    const params = [fId, fPass, fName];
+    const rows = await queryDB(query, params);
+    return rows;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+async function insertAttendance(date, hour, stdId, attenSts) {
+  try {
+    const query = `INSERT INTO attendance (noteDate, hour, student_id, attenSts) VALUES (?, ?, ?, ?);`;
+    const params = [date, hour, stdId, attenSts];
     const rows = await queryDB(query, params);
     return rows;
   } catch (error) {
@@ -65,4 +86,6 @@ async function addNewStd(stdId, stdName, stdPass) {
 module.exports = {
   fetchCred,
   addNewStd,
+  addNewFac,
+  insertAttendance,
 };

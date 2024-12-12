@@ -1,0 +1,98 @@
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  /* padding: 20px; */
+}
+.attendance-wrapper {
+  color: black;
+  outline: 1px solid rgb(0, 0, 0);
+  width: 50%;
+  border-radius: 8px;
+  padding: 12px;
+  position: absolute;
+  background-color: #ffffff;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.top-container {
+  display: flex;
+  /* outline: 1px solid red; */
+  gap: 20px;
+  align-items: baseline;
+}
+
+.top-container .hour {
+  color: #002fff;
+}
+.top-container .date-time {
+  color: #3c3838;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 4 columns */
+  gap: 10px;
+}
+
+.card {
+  cursor: pointer;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none;
+  user-select: none;
+  display: flex;
+  color: white;
+  align-items: center;
+  justify-content: space-between;
+  /* Light greenish background */
+  padding: 10px 15px;
+  background-color: #3c3838;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.card:hover {
+  transform: scale(1.03); /* Slight zoom effect on hover */
+}
+
+.card span {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.card input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+.btn-container {
+  /* outline: 1px solid red; */
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+  gap: 10px;
+}
+.btn-ab {
+  /* float: right; */
+  padding: 12px 8px;
+  cursor: pointer;
+  background-color: black;
+  font-size: 1.07em;
+  border-radius: 8px;
+  border: 1px solid;
+  transition: all 0.4s ease-in;
+}
+.btn-clr {
+  background-color: #fff;
+  color: black;
+}
+.btn-clr:hover {
+  background-color: #fff;
+}
+.btn-ab:hover {
+  background-color: #ffffff;
+  color: black;
+  transition: all 0.4s ease-in-out;
+}

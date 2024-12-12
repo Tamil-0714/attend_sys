@@ -22,10 +22,13 @@ const authUser = async (id, pass, flag) => {
     if (status === 200) {
       const headers = Object.fromEntries(response.headers.entries());
       const resData = await response.json();
+      if (flag === "faculty") {
+        window.location.href = "./facultyProfile.html";
+        return;
+      }
       window.location.href = "./adminProfile.html";
     } else if (status === 403) {
       alert("Unauthorized: Invalid user credentials");
-
     } else {
       alert(`Unexpected error occurred: Status ${status}`);
     }
@@ -34,4 +37,3 @@ const authUser = async (id, pass, flag) => {
     alert("Failed to connect to the server. Please try again later.");
   }
 };
-

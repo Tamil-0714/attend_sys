@@ -58,9 +58,16 @@
       </form>
       <form class="input-validation-required add-new-stduent">
         <center><h3>Add New Student</h3></center>
+        <sl-select label="Select Section">
+          <sl-option value="option-1">Section A</sl-option>
+          <sl-option value="option-2">Section B</sl-option>
+          <sl-option value="option-3">Section C</sl-option>
+        </sl-select>
+        <br>
         <sl-input
           name="sname"
           label="Student Name"
+          class="sname"
           autocomplete="off"
           required
         ></sl-input>
@@ -69,6 +76,7 @@
           name="sid"
           label="Student ID"
           autocomplete="off"
+          class="sid"
           required
         ></sl-input>
         <br />
@@ -76,6 +84,7 @@
           name="spass"
           type="password"
           password-toggle
+          class="spass"
           label="Student Passowrd"
           autocomplete="off"
           required
@@ -87,7 +96,7 @@
     </div>
     <!-- <div id="profile-info"></div> -->
 
-    <script src="./script/profileFetch.js"></script>
+    <script src="./script/fetchAdminProfile.js"></script>
     <script src="./script/adminScript.js"></script>
   </body>
 </html>
