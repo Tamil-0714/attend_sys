@@ -1,6 +1,6 @@
 async function fetchProfile() {
   try {
-    const response = await fetch("http://localhost:8050/profile", {
+    const response = await fetch("http://localhost:8050/admin/dashboard", {
       method: "GET",
       credentials: "include",
     });

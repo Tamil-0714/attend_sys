@@ -25,8 +25,11 @@ const authUser = async (id, pass, flag) => {
       if (flag === "faculty") {
         window.location.href = "./facultyProfile.html";
         return;
+      } else if (flag == "student") {
+        window.location.href = "./studentProfile.html";
+      } else {
+        window.location.href = "./adminProfile.html";
       }
-      window.location.href = "./adminProfile.html";
     } else if (status === 403) {
       alert("Unauthorized: Invalid user credentials");
     } else {

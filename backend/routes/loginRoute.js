@@ -8,7 +8,7 @@ const handleLogin = async (uid, pass, flag, req, res) => {
     const rows = await fetchCred(uid, flag);
 
     if (rows && rows[0]) {
-      bcrypt.compare(pass, rows[0].pass, function (err, result) {
+      bcrypt.compare(pass, rows[0].password, function (err, result) {
         if (err) {
           console.error("Error comparing passwords:", err);
           return res.status(500).json({ message: "Internal Server Error" });
@@ -17,7 +17,7 @@ const handleLogin = async (uid, pass, flag, req, res) => {
         if (result) {
           req.session.user = { uid, role: flag };
           return res.status(200).json({ message: "Login successful" });
-        } else {
+        } else { 
           return res
             .status(403)
             .json({ message: "Unauthorized: Incorrect Password" });

@@ -34,10 +34,10 @@ async function fetchCred(id, flag) {
         query = "SELECT * FROM adminCred WHERE id = ?";
         break;
       case "faculty":
-        query = "SELECT * FROM facultyCred WHERE id = ?";
+        query = "SELECT * FROM faculty WHERE faculty_id = ?";
         break;
       case "student":
-        query = "SELECT * FROM studentCred WHERE id = ?";
+        query = "SELECT * FROM student WHERE student_id = ?";
         break;
     }
     const params = [id];
@@ -51,20 +51,80 @@ async function fetchCred(id, flag) {
   }
 }
 
-async function addNewStd(stdName, stdId, stdPass) {
+async function addNewStd(stdName, stdId, stdPass, classId) {
   try {
-    const query = `insert into sectionAStudentCred values(?,?,?)`;
-    const params = [stdId, stdPass, stdName];
+    const query = `insert into student values(?,?,?,?)`;
+    const params = [stdId, stdName, stdPass, classId];
     const rows = await queryDB(query, params);
     return rows;
   } catch (error) {
     console.error(error);
   }
 }
-async function addNewFac(fName, fId, fPass) {
+async function addNewFac(fName, fId, fPass, dprt) {
   try {
-    const query = `insert into facultyCred values(?,?,?)`;
-    const params = [fId, fPass, fName];
+    const query = `insert into faculty values(?,?,?,?)`;
+    const params = [fId, fPass, fName, dprt];
+    const rows = await queryDB(query, params);
+    return rows;
+  } catch (error) {
+    console.error(error);
+  }
+}
+async function fetchClasses() {
+  try {
+    const query = `SELECT class_id,class_name FROM class`;
+    const params = [];
+    const rows = await queryDB(query, params);
+    return rows;
+  } catch (error) {
+    console.error(error);
+  }
+}
+async function fetchDepartment() {
+  try {
+    const query = `SELECT department_id,department_name FROM department`;
+    const params = [];
+    const rows = await queryDB(query, params);
+    return rows;
+  } catch (error) {
+    console.error(error);
+  }
+}
+async function fetchFaculty() {
+  try {
+    const query = `SELECT faculty_id,name FROM faculty`;
+    const params = [];
+    const rows = await queryDB(query, params);
+    return rows;
+  } catch (error) {
+    console.error(error);
+  }
+}
+async function fetchCourse() {
+  try {
+    const query = `SELECT * FROM course`;
+    const params = [];
+    const rows = await queryDB(query, params);
+    return rows;
+  } catch (error) {
+    console.error(error);
+  }
+}
+async function insertFacToCourse(faculty_id, course_id, class_id) {
+  try {
+    const query = `INSERT INTO Faculty_course_Assigned(faculty_id, course_id, class_id) VALUES(?,?,?)`;
+    const params = [faculty_id, course_id, class_id];
+    const rows = await queryDB(query, params);
+    return rows;
+  } catch (error) {
+    console.error(error);
+  }
+}
+async function fetchCourse() {
+  try {
+    const query = `SELECT * FROM course`;
+    const params = [];
     const rows = await queryDB(query, params);
     return rows;
   } catch (error) {
@@ -88,4 +148,9 @@ module.exports = {
   addNewStd,
   addNewFac,
   insertAttendance,
+  fetchClasses,
+  fetchDepartment,
+  fetchFaculty,
+  fetchCourse,
+  insertFacToCourse
 };

@@ -33,6 +33,9 @@
           required
         ></sl-input>
         <br />
+        <sl-select label="Select Deparmetn" class="dprt-input-wrapper">
+        </sl-select>
+        <br>
         <sl-input
           name="fid"
           class="fid"
@@ -58,12 +61,7 @@
       </form>
       <form class="input-validation-required add-new-stduent">
         <center><h3>Add New Student</h3></center>
-        <sl-select label="Select Section">
-          <sl-option value="option-1">Section A</sl-option>
-          <sl-option value="option-2">Section B</sl-option>
-          <sl-option value="option-3">Section C</sl-option>
-        </sl-select>
-        <br>
+
         <sl-input
           name="sname"
           label="Student Name"
@@ -71,6 +69,11 @@
           autocomplete="off"
           required
         ></sl-input>
+        <br />
+        <div>
+          <sl-select label="Select Class" class="class-input-wrapper">
+          </sl-select>
+        </div>
         <br />
         <sl-input
           name="sid"
@@ -89,6 +92,26 @@
           autocomplete="off"
           required
         ></sl-input>
+        <br />
+        <br />
+        <sl-button type="submit" variant="primary">Submit</sl-button>
+      </form>
+      <form class="input-validation-required add-new-fac-to-course">
+        <center><h3>Assign Faculty to course</h3></center>
+        <div>
+          <sl-select label="Select Faculty" class="faculty-input-wrapper">
+          </sl-select>
+        </div>
+        <br />
+        <div>
+          <sl-select label="Select Course" class="course-input-wrapper">
+          </sl-select>
+        </div>
+        <br />
+        <div>
+          <sl-select label="Select Class" class="class-input-wrapper">
+          </sl-select>
+        </div>
         <br />
         <br />
         <sl-button type="submit" variant="primary">Submit</sl-button>
